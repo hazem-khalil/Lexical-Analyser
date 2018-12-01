@@ -1,4 +1,4 @@
-#include "code.cpp"
+
 #include <fstream>
 #include <iostream>
 #include <bits/stdc++.h>
@@ -21,9 +21,21 @@ int main() {
 	ifstream file("code.txt");
 	if (file.is_open()) {
 	    string line;
+	    string strWords[100];
+		short counter = 0;
 	    while (getline(file, line)) {
-	        cout << line.c_str()<< "\n";
+	    	for(int i=0; i<line.length(); i++){
+	    		if(line[i] == 32){
+			        counter++;
+			        i++;
+			    }
+			    strWords[counter] += line[i];
+	    	}
 	    }
+	    for(int i=0; i<counter; i++) {
+		    cout<<strWords[i]<<endl;
+		}    
+	    
 	    file.close();
 	}
 	
