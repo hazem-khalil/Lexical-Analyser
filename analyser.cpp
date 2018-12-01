@@ -1,6 +1,7 @@
 #include "code.cpp"
 #include <fstream>
 #include <iostream>
+#include <bits/stdc++.h>
 
 using namespace std;
 
@@ -15,7 +16,17 @@ int main() {
 
 	if( length == 0 ){
 		cout << "file is empty";
-	} else {
-		cout << "file is not empty";
 	}
+	
+	ifstream file("code.txt");
+	if (file.is_open()) {
+	    string line;
+	    while (getline(file, line)) {
+	        cout << line.c_str()<< "\n";
+	    }
+	    file.close();
+	}
+	
+
+	
 }
