@@ -1,18 +1,12 @@
-
-#include <fstream>
-#include <iostream>
-#include <bits/stdc++.h>
-
-using namespace std;
-
+#include "analysis.cpp"
 int main() {
 	int length;
-	ifstream filestr;
 
+	ifstream filestr;
 	filestr.open("code.txt", ios::binary); // open your file
 	filestr.seekg(0, ios::end); // put the "cursor" at the end of the file
 	length = filestr.tellg(); // find the position of the cursor
-	filestr.close(); // close your file
+
 
 	if( length == 0 ){
 		cout << "file is empty";
@@ -33,12 +27,14 @@ int main() {
 	    	}
 	    }
 	    for(int i=0; i<counter; i++) {
-		    cout<<strWords[i]<<endl;
+		    
+		    if(isKeyword(strWords[i])) {
+		    	cout<<strWords[i]<<"\t\t\t is a keyword\n";
+		    } else if  (isOperator) {
+		    	cout<<strWords[i]<<"\t\t\t is an operator\n";
+		    }
 		}    
 	    
-	    file.close();
+	    filestr.close();
 	}
-	
-
-	
 }
